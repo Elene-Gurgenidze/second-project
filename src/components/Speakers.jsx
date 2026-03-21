@@ -44,9 +44,6 @@ SPEAKER</h1>
                     <img className="earphone1-img" src={Speaker4} alt="Headphones" />
                 </div>
             </div>
-
-           
-            
             <br />
             <br />
             <Options />

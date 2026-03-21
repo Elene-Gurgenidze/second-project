@@ -22,7 +22,7 @@ export default function Headphones() {
                     <p className="orange-text">NEW PRODUCT</p>
                     <h1>XX99 Mark II<br />
                         Headphones</h1>
-                    <p >The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
+                    <p className="pharagrap">The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
                     <button className="first-button"> SEE PRODUCT</button>
                 </div>
             </div>
@@ -35,7 +35,7 @@ export default function Headphones() {
                 <div className="text-container2">
                     <h1>XX99 Mark I <br />
                         Headphones</h1>
-                    <p >As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.</p>
+                    <p className="pharagrap">As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.</p>
                     <button className="first-button"> SEE PRODUCT</button>
                 </div>
 
@@ -52,7 +52,7 @@ export default function Headphones() {
                     <h1>XX59<br />
                         Headphones
                         Headphones</h1>
-                    <p >Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.</p>
+                    <p className="pharagrap" >Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.</p>
                     <button className="first-button"> SEE PRODUCT</button>
                 </div>
             </div>

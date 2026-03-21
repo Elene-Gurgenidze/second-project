@@ -22,7 +22,9 @@ export default function Home() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <button className="first-button">SEE PRODUCT</button>
+              <a href="/headphones"><button className="first-button">SEE PRODUCT</button></a>
+
+            
           </div>
           <div>
             <img className="mainimage" src={headphoneImage} alt="Headphones" />
