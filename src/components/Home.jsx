@@ -5,6 +5,7 @@ import Speaker1 from "../assets/Speaker.png";
 import speaker1 from "../assets/Speaker3.png";
 import Earphone from "../assets/Earphone.png";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -22,9 +23,10 @@ export default function Home() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-              <a href="/headphones"><button className="first-button">SEE PRODUCT</button></a>
+            <Link to="/XX99Headphone">
+              <button className="first-button">SEE PRODUCT</button>
+            </Link>
 
-            
           </div>
           <div>
             <img className="mainimage" src={headphoneImage} alt="Headphones" />
@@ -50,8 +52,9 @@ export default function Home() {
               <br />
               sound.
             </p>
-            <button className="btn">SEE PRODUCTS</button>
-          </div>
+            <Link to="/zx9speaker">
+              <button className="btn">SEE PRODUCT</button>
+            </Link>  </div>
         </div>
 
         <div className="image-container">

@@ -4,11 +4,6 @@ import Footer from "./Footer";
 import Earphones from "../assets/Earphones.png"
 
 
-
-
-
-
-
 export default function Headphones() {
     return (
         <>
