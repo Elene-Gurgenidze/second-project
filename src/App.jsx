@@ -29,7 +29,7 @@ function App() {
         <Route path="/ZX7SPEAKER" element={<ZX7SPEAKER />} />
         <Route path="/YX1WIRELESS" element={<YX1WIRELESS />} />
 
-
+      
       </Routes>
     </>
   );
