@@ -4,6 +4,7 @@ import Container from "./Container";
 import Footer from "./Footer";
 import Speaker3 from "../assets/Speaker.png"
 import Speaker4 from "../assets/Speaker4.png"
+import { Link } from "react-router-dom";
 
 
 
@@ -23,8 +24,11 @@ export default function Headphones() {
                     <p className="orange-text">NEW PRODUCT</p>
                     <h1>ZX9<br />
                         SPEAKER</h1>
-<p>Upgrade your sound system with the all new ZX9 active speaker. It is a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.</p>
-                    <button className="first-button"> SEE PRODUCT</button>
+                    <p className="pharagrap">Upgrade your sound system with the all new ZX9 active speaker. It is a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.</p>
+                    <Link to="/zx9speaker">
+                        <button className="first-button"> SEE PRODUCT</button>
+
+                    </Link>
                 </div>
             </div>
 
@@ -34,10 +38,13 @@ export default function Headphones() {
 
 
                 <div className="text-container2">
-                    <h1>ZX7<br/>
-SPEAKER</h1>
-                    <p >Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.</p>
-                    <button className="first-button"> SEE PRODUCT</button>
+                    <h1>ZX7<br />
+                        SPEAKER</h1>
+                    <p className="pharagrap">Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.</p>
+                    <Link to="/ZX7SPEAKER">
+                        <button className="first-button"> SEE PRODUCT</button>
+
+                    </Link>
                 </div>
 
                 <div>

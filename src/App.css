@@ -633,17 +633,20 @@ button {
 .firstimg {
   width: 445px;
   height: 280px;
+  border-radius: 8px;
 }
 
 .secondimg {
   height: 280px;
+  border-radius: 8px;
   width: 445px;
 }
 
 .thirdimg {
   margin-left: 20px;
-  height: 592px;
+  height: 590px;
   width: 635px;
+  border-radius: 8px;
 }
 
 .layout {

@@ -2,6 +2,7 @@ import Options from "./Options";
 import Container from "./Container";
 import Footer from "./Footer";
 import Earphones from "../assets/Earphones.png"
+import { Link } from "react-router-dom";
 
 
 export default function Headphones() {
@@ -18,7 +19,11 @@ export default function Headphones() {
                     <h1>YX1 WIRELESS<br/>
 EARPHONES</h1>
 <p className="pharagrap">Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.</p>
+
+                     <Link to="/YX1WIRELESS">
                     <button className="first-button"> SEE PRODUCT</button>
+
+                    </Link>
                 </div>
             </div>
 
