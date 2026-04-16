@@ -10,12 +10,14 @@ import XX99MarkHeadphone from "./components/XX99-Mark1"
 import XX59Headphones from "./components/XX59-Headphones"
 import ZX7SPEAKER from "./components/ZX7-SPEAKER"
 import YX1WIRELESS from "./components/YX1-WIRELESS"
+import { CartProvider } from "./components/context/CartContext";
 
 import "./App.css";
 
 function App() {
   return (
     <>
+    <CartProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,8 +31,8 @@ function App() {
         <Route path="/ZX7SPEAKER" element={<ZX7SPEAKER />} />
         <Route path="/YX1WIRELESS" element={<YX1WIRELESS />} />
 
-      
       </Routes>
+      </CartProvider>
     </>
   );
 }

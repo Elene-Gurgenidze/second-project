@@ -1,39 +1,69 @@
-import earphone from "../assets/Earphone2.png"
-import Counter from "./Counter"
-import Secondimg from "../assets/img-cont1.png"
-import Thirdimg from "../assets/img-cont3.png"
-import MayLike from "./MayLike"
+import { useState } from "react";
+import { useCart } from "./context/CartContext";
+import earphone from "../assets/Earphone2.png";
+import Counter from "./Counter";
+import MayLike from "./MayLike";
 import Options from "./Options";
 import Container from "./Container";
 import Footer from "./Footer";
-import Firstimg from "../assets/img-cont1.png"
+import Firstimg from "../assets/img-cont1.png";
+import Secondimg from "../assets/img-cont1.png"; // აქ შეამოწმე, თუ სხვა იმიჯია საჭირო
+import Thirdimg from "../assets/img-cont3.png";
 
+export default function MarkI() {
+    // 1. კალათის ფუნქციის ამოღება
+    const { addToCart } = useCart();
+    
+    // 2. ლოკალური სთეითი რაოდენობისთვის
+    const [quantity, setQuantity] = useState(1);
 
+    // 3. პროდუქტის უნიკალური მონაცემები
+    const product = {
+        id: 3, // უნიკალური ID (Mark II-ს ჰქონდა 1, XX59-ს 2)
+        name: "XX99 Mark I",
+        price: 1750,
+        image: earphone
+    };
 
-export default function Home() {
+    // 4. კალათაში დამატების ფუნქცია
+    const handleAddToCart = () => {
+        addToCart(product, quantity);
+        // სურვილისამებრ შეგიძლია აქ რაიმე ნოტიფიკაცია დაამატო
+    };
+
     return (
         <>
             <div className="headphone-container">
                 <div className="Mask">
-                    <img src={earphone} alt="Headphones" />
+                    <img src={earphone} alt="XX99 Mark I Headphones" />
                 </div>
                 <div className="text-container3">
-                    <h1>XX99 Mark I<br />
-                        Headphones</h1>
-                    <p className="pharagrap">As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go. </p>
+                    <h1>XX99 Mark I<br /> Headphones</h1>
+                    <p className="pharagrap">
+                        As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.
+                    </p>
                     <p className="price-text">$ 1,750</p>
                     <div className="counter-container">
-                        <Counter />
-                        <button className="first-button"> ADD TO CARD</button>
+                        {/* რაოდენობის კონტროლი */}
+                        <Counter 
+                            quantity={quantity} 
+                            onIncrease={() => setQuantity(prev => prev + 1)}
+                            onDecrease={() => setQuantity(prev => (prev > 1 ? prev - 1 : 1))}
+                        />
+                        <button className="first-button" onClick={handleAddToCart}> 
+                            ADD TO CART
+                        </button>
                     </div>
                 </div>
             </div>
+
             <div className="features-container">
                 <div>
                     <h1 className="features">FEATURES</h1>
-                    <p className="feature-p"> As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials to emphasize durability at a relatively light weight of 11 oz.
-
-From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. Its closed-back design delivers up to 27 dB of passive noise cancellation, reducing resonance by reflecting sound to a dedicated absorber. For connectivity, a specially tuned cable is included with a balanced gold connector.
+                    <p className="feature-p"> 
+                        As the headphones all others are measured against, the XX99 Mark I demonstrates over five decades of audio expertise, redefining the critical listening experience. This pair of closed-back headphones are made of industrial, aerospace-grade materials to emphasize durability at a relatively light weight of 11 oz.
+                        <br /><br />
+                        From the handcrafted microfiber ear cushions to the robust metal headband with inner damping element, the components work together to deliver comfort and uncompromising sound. Its closed-back design delivers up to 27 dB of passive noise cancellation, reducing resonance by reflecting sound to a dedicated absorber.
                     </p>
                 </div>
 
@@ -41,10 +71,10 @@ From the handcrafted microfiber ear cushions to the robust metal headband with i
                     <h1 className="features">IN THE BOX</h1>
                     <div className="place">
                         <div className="amount">
-                            <p>1x</p>
-                            <p>2x</p>
-                            <p>1x</p>
-                            <p>1x</p>
+                            <p style={{ color: '#D87D4A', fontWeight: 'bold' }}>1x</p>
+                            <p style={{ color: '#D87D4A', fontWeight: 'bold' }}>2x</p>
+                            <p style={{ color: '#D87D4A', fontWeight: 'bold' }}>1x</p>
+                            <p style={{ color: '#D87D4A', fontWeight: 'bold' }}>1x</p>
                         </div>
                         <div className="name">
                             <p>Headphone Unit</p>
@@ -52,27 +82,22 @@ From the handcrafted microfiber ear cushions to the robust metal headband with i
                             <p>User Manual</p>
                             <p>3.5mm 5m Audio Cable</p>
                         </div>
-
                     </div>
-
-
-
-
                 </div>
             </div>
+
             <div className="image-container">
                 <div className="layout">
-                    <img className="firstimg" src={Firstimg} alt="Headphones" />
-                    <img className="secondimg" src={Secondimg} alt="Headphones" />
+                    <img className="firstimg" src={Firstimg} alt="Headphones view 1" />
+                    <img className="secondimg" src={Secondimg} alt="Headphones view 2" />
                 </div>
-                <img className="thirdimg" src={Thirdimg} alt="Headphones" />
-
+                <img className="thirdimg" src={Thirdimg} alt="Headphones view 3" />
             </div>
+
             <MayLike />
             <Options />
             <Container />
             <Footer />
         </>
-
     );
 }
