@@ -7,28 +7,23 @@ import Options from "./Options";
 import Container from "./Container";
 import Footer from "./Footer";
 import Firstimg from "../assets/img-cont1.png";
-import Secondimg from "../assets/img-cont1.png"; // აქ შეამოწმე, თუ სხვა იმიჯია საჭირო
+import Secondimg from "../assets/img-cont1.png";
 import Thirdimg from "../assets/img-cont3.png";
 
 export default function MarkI() {
-    // 1. კალათის ფუნქციის ამოღება
     const { addToCart } = useCart();
     
-    // 2. ლოკალური სთეითი რაოდენობისთვის
     const [quantity, setQuantity] = useState(1);
 
-    // 3. პროდუქტის უნიკალური მონაცემები
     const product = {
-        id: 3, // უნიკალური ID (Mark II-ს ჰქონდა 1, XX59-ს 2)
+        id: 3,
         name: "XX99 Mark I",
         price: 1750,
         image: earphone
     };
 
-    // 4. კალათაში დამატების ფუნქცია
     const handleAddToCart = () => {
         addToCart(product, quantity);
-        // სურვილისამებრ შეგიძლია აქ რაიმე ნოტიფიკაცია დაამატო
     };
 
     return (
@@ -44,7 +39,6 @@ export default function MarkI() {
                     </p>
                     <p className="price-text">$ 1,750</p>
                     <div className="counter-container">
-                        {/* რაოდენობის კონტროლი */}
                         <Counter 
                             quantity={quantity} 
                             onIncrease={() => setQuantity(prev => prev + 1)}

@@ -11,21 +11,17 @@ import Container from "./Container";
 import Footer from "./Footer";
 
 export default function Home() {
-  // 1. კალათის კონტექსტიდან ვიღებთ დამატების ფუნქციას
   const { addToCart } = useCart();
   
-  // 2. ლოკალური სთეითი პროდუქტის რაოდენობისთვის
   const [quantity, setQuantity] = useState(1);
 
-  // 3. პროდუქტის ობიექტი YX1-ის მონაცემებით
   const product = {
-    id: 4, // უნიკალური ID
+    id: 4, 
     name: "YX1 Wireless Earphones",
     price: 599,
     image: earphone
   };
 
-  // 4. კალათაში დამატების დამუშავება
   const handleAddToCart = () => {
     addToCart(product, quantity);
   };
@@ -45,7 +41,6 @@ export default function Home() {
           <p className="price-text">$ 599</p>
           
           <div className="counter-container">
-            {/* Counter-ს გადავცემთ სთეითს და მართვის ფუნქციებს */}
             <Counter 
               quantity={quantity}
               onIncrease={() => setQuantity(prev => prev + 1)}

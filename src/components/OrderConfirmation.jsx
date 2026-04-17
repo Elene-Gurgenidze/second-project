@@ -6,13 +6,12 @@ export default function OrderConfirmation({ grandTotal }) {
     const navigate = useNavigate();
     const { cartItems, clearCart } = useCart();
     
-    // ვიღებთ მხოლოდ პირველ ნივთს საჩვენებლად
     const firstItem = cartItems[0];
     const otherItemsCount = cartItems.length - 1;
 
     const handleBackHome = () => {
-        clearCart(); // ვასუფთავებთ კალათას ყიდვის შემდეგ
-        navigate('/'); // ვბრუნდებით მთავარ გვერდზე
+        clearCart();
+        navigate('/');
     };
 
     return (
@@ -25,7 +24,6 @@ export default function OrderConfirmation({ grandTotal }) {
                 background: 'white', maxWidth: '540px', width: '100%',
                 padding: '48px', borderRadius: '8px'
             }}>
-                {/* ნარინჯისფერი Checkmark ხატულა */}
                 <div style={{
                     width: '64px', height: '64px', backgroundColor: '#D87D4A',
                     borderRadius: '50%', display: 'flex', justifyContent: 'center',
@@ -37,9 +35,7 @@ export default function OrderConfirmation({ grandTotal }) {
                 </h2>
                 <p style={{ opacity: 0.5, marginBottom: '33px' }}>You will receive an email confirmation shortly.</p>
 
-                {/* ნაცრისფერი და შავი ბლოკი */}
                 <div style={{ display: 'flex', borderRadius: '8px', overflow: 'hidden', marginBottom: '46px' }}>
-                    {/* მარცხენა მხარე - პროდუქტები */}
                     <div style={{ backgroundColor: '#F1F1F1', padding: '24px', flex: 1.5 }}>
                         {firstItem && (
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: otherItemsCount > 0 ? '1px solid rgba(0,0,0,0.1)' : 'none', paddingBottom: '12px' }}>
@@ -60,7 +56,6 @@ export default function OrderConfirmation({ grandTotal }) {
                         )}
                     </div>
 
-                    {/* მარჯვენა მხარე - Grand Total */}
                     <div style={{ backgroundColor: 'black', color: 'white', padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <p style={{ opacity: 0.5, fontSize: '15px', marginBottom: '8px' }}>GRAND TOTAL</p>
                         <p style={{ fontWeight: 'bold', fontSize: '18px' }}>$ {grandTotal.toLocaleString()}</p>

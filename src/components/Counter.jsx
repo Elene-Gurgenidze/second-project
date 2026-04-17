@@ -5,7 +5,6 @@ export default function Counter({ quantity, onIncrease, onDecrease }) {
     <div className="counter" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
       <button onClick={onDecrease} style={{ cursor: 'pointer' }}>-</button>
       
-      {/* თუ აქ მაინც არაფერი გამოჩნდა, ესე იგი quantity არ მოვიდა */}
       <span style={{ color: 'black', fontWeight: 'bold' }}>
         {quantity ? quantity : 1} 
       </span>

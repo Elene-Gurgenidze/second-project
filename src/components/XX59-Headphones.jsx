@@ -10,13 +10,10 @@ import Footer from "./Footer";
 import Firstimg from "../assets/img-cont2-first.png";
 
 export default function Home() {
-    // 1. შემოვიტანოთ addToCart ფუნქცია კონტექსტიდან
     const { addToCart } = useCart();
 
-    // 2. შევქმნათ სთეითი რაოდენობისთვის
     const [quantity, setQuantity] = useState(1);
 
-    // 3. პროდუქტის მონაცემები
     const product = {
         id:2, 
         name: "XX59",
@@ -24,7 +21,6 @@ export default function Home() {
         image: earphone
     };
 
-    // 4. დამატების ფუნქცია
     const handleAddToCart = () => {
         addToCart(product, quantity);
         console.log("Added to cart:", product.name, "Quantity:", quantity);
@@ -45,7 +41,6 @@ export default function Home() {
                     </p>
                     <p className="price-text">$ 899</p>
                     <div className="counter-container">
-                        {/* რაოდენობის მართვა */}
                         <div className="quantity-selector" style={{ display: 'flex', alignItems: 'center', background: '#F1F1F1', padding: '10px', gap: '20px', marginRight: '15px' }}>
                             <button 
                                 onClick={() => setQuantity(q => (q > 1 ? q - 1 : 1))}

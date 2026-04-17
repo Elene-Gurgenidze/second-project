@@ -1,5 +1,5 @@
-import { useState } from "react"; // დავამატეთ useState
-import { useCart } from "./context/CartContext"; // დავამატეთ useCart
+import { useState } from "react";
+import { useCart } from "./context/CartContext";
 import earphone from "../assets/Earphone1.png";
 import Counter from "./Counter";
 import Features from "./Headphone-features";
@@ -12,21 +12,17 @@ import Container from "./Container";
 import Footer from "./Footer";
 
 export default function Home() {
-    // 1. კალათის ფუნქციის ამოღება
     const { addToCart } = useCart();
     
-    // 2. ლოკალური სთეითი რაოდენობისთვის (Counter-ისთვის)
     const [quantity, setQuantity] = useState(1);
 
-    // პროდუქტის მონაცემები
     const product = {
-        id: 1, // უნიკალური ID
+        id: 1,
         name: "XX99 MK II",
         price: 2999,
         image: earphone
     };
 
-    // 3. ფუნქცია, რომელიც ღილაკზე დაჭერისას მუშაობს
     const handleAddToCart = () => {
         addToCart(product, quantity);
     };
@@ -48,7 +44,6 @@ export default function Home() {
                     </p>
                     <p className="price-text">$ 2,999</p>
                     <div className="counter-container">
-                        {/* 4. Counter-ს გადავცემთ სთეითს და ფუნქციას */}
                         <Counter 
                             quantity={quantity} 
                             onIncrease={() => setQuantity(prev => prev + 1)}

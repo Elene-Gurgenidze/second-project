@@ -1,18 +1,17 @@
 import { useCart } from "./context/CartContext";
-import { useNavigate } from "react-router-dom"; // 1. დაამატე ეს იმპორტი
+import { useNavigate } from "react-router-dom"; 
 
 export default function CartModal({ isOpen, onClose }) {
     const { cartItems, clearCart } = useCart();
-    const navigate = useNavigate(); // 2. გამოიძახე ჰუკი
+    const navigate = useNavigate();
 
     if (!isOpen) return null;
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
-    // 3. შექმენი ფუნქცია გადასვლისთვის
     const handleCheckout = () => {
-        onClose(); // მოდალის დახურვა
-        navigate("/checkout"); // გადამისამართება
+        onClose(); 
+        navigate("/checkout");
     };
 
     return (
@@ -55,10 +54,9 @@ export default function CartModal({ isOpen, onClose }) {
                     <p style={{ fontWeight: 'bold' }}>$ {totalPrice.toLocaleString()}</p>
                 </div>
 
-                {/* 4. დაუმატე onClick ფუნქცია */}
                 <button 
                     onClick={handleCheckout}
-                    disabled={cartItems.length === 0} // თუ კალათა ცარიელია, ღილაკი არ იმუშავებს
+                    disabled={cartItems.length === 0}
                     style={{
                         width: '100%', background: '#D87D4A', color: 'white', border: 'none',
                         padding: '15px', fontWeight: 'bold', cursor: cartItems.length === 0 ? 'not-allowed' : 'pointer',

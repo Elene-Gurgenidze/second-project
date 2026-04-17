@@ -30,11 +30,9 @@ export default function Checkout() {
 
                 <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', alignItems: 'start' }}>
                     
-                    {/* მარცხენა ბლოკი - ფორმები */}
                     <div style={{ backgroundColor: 'white', padding: '48px', borderRadius: '8px' }}>
                         <h1 style={{ marginBottom: '40px', fontSize: '32px', letterSpacing: '1.1px' }}>CHECKOUT</h1>
 
-                        {/* BILLING DETAILS */}
                         <h6 style={{ color: '#D87D4A', marginBottom: '16px', fontSize: '13px', letterSpacing: '0.9px', textTransform: 'uppercase' }}>Billing Details</h6>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px 16px', marginBottom: '53px' }}>
                             <div className="input-group">
@@ -51,7 +49,6 @@ export default function Checkout() {
                             </div>
                         </div>
 
-                        {/* SHIPPING INFO */}
                         <h6 style={{ color: '#D87D4A', marginBottom: '16px', fontSize: '13px', letterSpacing: '0.9px', textTransform: 'uppercase' }}>Shipping Info</h6>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px 16px', marginBottom: '61px' }}>
                             <div style={{ gridColumn: 'span 2' }} className="input-group">
@@ -72,7 +69,6 @@ export default function Checkout() {
                             </div>
                         </div>
 
-                        {/* PAYMENT DETAILS */}
                         <h6 style={{ color: '#D87D4A', marginBottom: '16px', fontSize: '13px', letterSpacing: '0.9px', textTransform: 'uppercase' }}>Payment Details</h6>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                             <label style={{ fontWeight: 'bold', fontSize: '12px' }}>Payment Method</label>
@@ -88,7 +84,6 @@ export default function Checkout() {
                             </div>
                         </div>
 
-                        {/* მხოლოდ e-Money-ს დროს ვახდენთ ინპუტების რენდერს */}
                         {paymentMethod === 'emoney' && (
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '30px' }}>
                                 <div className="input-group">
@@ -103,7 +98,6 @@ export default function Checkout() {
                         )}
                     </div>
 
-                    {/* მარჯვენა ბლოკი - SUMMARY */}
                     <div style={{ backgroundColor: 'white', padding: '32px', borderRadius: '8px' }}>
                         <h3 style={{ marginBottom: '32px', fontSize: '18px', letterSpacing: '1.3px' }}>SUMMARY</h3>
                         <div style={{ marginBottom: '32px' }}>

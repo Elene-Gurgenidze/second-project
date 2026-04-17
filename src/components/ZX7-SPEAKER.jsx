@@ -1,5 +1,5 @@
-import { useState } from "react"; // დავამატეთ
-import { useCart } from "./context/CartContext"; // დავამატეთ
+import { useState } from "react"; 
+import { useCart } from "./context/CartContext";
 import earphone from "../assets/Speaker4.png";
 import Counter from "./Counter";
 import Firstimg from "../assets/Img-cont3-first.png";
@@ -11,21 +11,17 @@ import Container from "./Container";
 import Footer from "./Footer";
 
 export default function Home() {
-  // 1. კალათის ფუნქციონალი
   const { addToCart } = useCart();
   
-  // 2. რაოდენობის მართვა
   const [quantity, setQuantity] = useState(1);
 
-  // 3. პროდუქტის ობიექტი (ZX7 მონაცემებით)
   const product = {
-    id: 6, // მიეცი უნიკალური ID
+    id: 6,
     name: "ZX7 SPEAKER",
     price: 3500,
     image: earphone
   };
 
-  // 4. დამატების ფუნქცია
   const handleAddToCart = () => {
     addToCart(product, quantity);
   };
@@ -44,7 +40,6 @@ export default function Home() {
           </p>
           <p className="price-text">$ 3,500</p>
           <div className="counter-container">
-            {/* 5. ქაუნთერის დაკავშირება სთეითთან */}
             <Counter 
               quantity={quantity}
               onIncrease={() => setQuantity(prev => prev + 1)}

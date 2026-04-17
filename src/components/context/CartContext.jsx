@@ -5,7 +5,6 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  // 1. გამოვთვალოთ ჯამური ფასი ყოველ რენდერზე
   const totalPrice = cartItems.reduce((acc, item) => {
     return acc + (item.price * item.quantity);
   }, 0);
@@ -35,7 +34,6 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    // 2. აუცილებლად დაამატე totalPrice აქ, რომ Checkout-მა დაინახოს
     <CartContext.Provider value={{ cartItems, totalPrice, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
