@@ -1,25 +1,24 @@
 import { createContext, useState, useContext } from 'react';
 
-// 1. ვქმნით კონტექსტს
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  // აქ შევინახავთ კალათის ნივთებს
   const [cartItems, setCartItems] = useState([]);
 
-  // ფუნქცია კალათაში დასამატებლად / რაოდენობის შესაცვლელად
+  // 1. გამოვთვალოთ ჯამური ფასი ყოველ რენდერზე
+  const totalPrice = cartItems.reduce((acc, item) => {
+    return acc + (item.price * item.quantity);
+  }, 0);
+
   const addToCart = (product, quantity) => {
     setCartItems((prev) => {
-      // ვამოწმებთ, უკვე არის თუ არა ეს ნივთი კალათაში
       const isExist = prev.find((item) => item.id === product.id);
 
       if (isExist) {
-        // თუ რაოდენობა მცირდება და ხდება 0 ან ნაკლები, ვშლით ნივთს
         if (isExist.quantity + quantity <= 0) {
           return prev.filter((item) => item.id !== product.id);
         }
 
-        // თუ არის, უბრალოდ რაოდენობას ვუცვლით
         return prev.map((item) =>
           item.id === product.id 
             ? { ...item, quantity: item.quantity + quantity } 
@@ -27,25 +26,22 @@ export const CartProvider = ({ children }) => {
         );
       }
       
-      // თუ არ არის და რაოდენობა პოზიტიურია, ვამატებთ ახალ ნივთს მასივში
       return quantity > 0 ? [...prev, { ...product, quantity }] : prev;
     });
   };
 
-  // ფუნქცია კალათის მთლიანად გასასუფთავებლად ("Remove all")
   const clearCart = () => {
     setCartItems([]);
   };
 
   return (
-    // ვატანთ მნიშვნელობებს: ნივთებს, დამატებას და გასუფთავებას
-    <CartContext.Provider value={{ cartItems, addToCart, clearCart }}>
+    // 2. აუცილებლად დაამატე totalPrice აქ, რომ Checkout-მა დაინახოს
+    <CartContext.Provider value={{ cartItems, totalPrice, addToCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
 };
 
-// "ჰუკი", რომლითაც სხვა კომპონენტებიდან მივწვდებით კალათას
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {

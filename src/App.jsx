@@ -11,6 +11,7 @@ import XX59Headphones from "./components/XX59-Headphones"
 import ZX7SPEAKER from "./components/ZX7-SPEAKER"
 import YX1WIRELESS from "./components/YX1-WIRELESS"
 import { CartProvider } from "./components/context/CartContext";
+import Checkout from "./components/Checkout"; // დარწმუნდი რომ გზა სწორია
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/XX59Headphone" element={<XX59Headphones />} />
         <Route path="/ZX7SPEAKER" element={<ZX7SPEAKER />} />
         <Route path="/YX1WIRELESS" element={<YX1WIRELESS />} />
+        <Route path="/checkout" element={<Checkout />} />
 
       </Routes>
       </CartProvider>
